@@ -7,7 +7,7 @@ public class Main {
         Usuario u2 = new Usuario("Gui", 2, false);
 
         Emprestimo e1 = new Emprestimo(u1, l1);
-        Emprestimo e2 = new Emprestimo(u2, l2);
+        Emprestimo e2 = new Emprestimo(u2, l2);z
 
         Biblioteca b1 = new Biblioteca();
 
