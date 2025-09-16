@@ -4,11 +4,10 @@ public class Biblioteca {
     private ArrayList<Emprestimo> emprestimos = new ArrayList<>();
     private ArrayList<Usuario> usuarios = new ArrayList<>();
 
-    //Construtor
+
     public Biblioteca(){
     }
 
-    //Adicionar e remover na lista de livros
     public void adicionarLivros(Livro livro){
         livros.add(livro);
     }
@@ -16,7 +15,6 @@ public class Biblioteca {
         livros.remove(livro);
     }
 
-    //Adicionar e remover na lista de emprestimos
     public void adicionarEmprestimos(Emprestimo emprestimo){
         emprestimos.add(emprestimo);
     }
@@ -24,7 +22,6 @@ public class Biblioteca {
         emprestimos.remove(emprestimo);
     }
 
-    //Adicionar e remover na lista de usuários
     public void adicionarUsuarios(Usuario usuario){
         usuarios.add(usuario);
     }
@@ -32,20 +29,37 @@ public class Biblioteca {
         usuarios.remove(usuario);
     }
 
-    //Listar
+
     public void listarLivros(){
+        System.out.println("Livros Cadastrados: ");
         for(int i = 0; i < livros.size(); i++){
             System.out.println(livros.get(i));
         }
     }
 
     public void listarEmprestimos(){
+        System.out.println("Empréstimos Ativos: ");
         for(int i = 0; i < emprestimos.size(); i++){
             System.out.println(emprestimos.get(i));
         }
     }
 
+    public void listarHistoricoUsuario(Usuario usuario) {
+        System.out.println("Histórico do Usuário: " + usuario.getNome() + " : ");
+        boolean encontrou = false;
+        for (int i = 0; i < emprestimos.size(); i++) {
+            Emprestimo emprestimo = emprestimos.get(i);
+            if (emprestimo.getUsuario().getID() == usuario.getID()) {
+                System.out.println(emprestimo.toString());
+                encontrou = true;
+            }
+        }
 
-
-
+        if (!encontrou) {
+            System.out.println("Nenhum empréstimo encontrado para este usuário.");
+        }
+    }
 }
+
+
+
